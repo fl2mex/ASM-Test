@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "NASM",
+      "type": "shell",
+      "command": "nasm",
+      "args": [
+        "-f",
+		"bin",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.bin"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "QEMU",
+      "type": "shell",
+      "command": "qemu-system-x86_64",
+      "args": [
+        "${fileDirname}\\${fileBasenameNoExtension}.bin"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
