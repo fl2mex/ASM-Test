@@ -1,6 +1,8 @@
 ; "Hello, World!" Bootloader
 ; Made by Kaiden Bird
-; 18/06/2023
+; Created: 18/06/2023
+; Last updated: 20/06/2023
+; Changelog: Abstracted the print function, added newline.
 
 use16 ; Use 16-bit mode
 org 0x7c00 ; Set the origin to 0x7c00
@@ -18,8 +20,6 @@ jmp endOfProgram ; It's cleaner to jump directly to the end of the program from 
 myString: db 'Hello, World!', 0x0a, 0x0d, 0
 
 endOfProgram:
-    jmp $ ; Jump to current address (forever), saves 1 LOC but its for shits and giggles
-
-    ; Legacy boot bios expects the boot sector to be 512 bytes long.
-    times 510-($-$$) db 0 ; Fills 510 bytes of the boot sectors to 0.
-    dw 0xaa55 ; Last two bytes are so the BIOS knows it's a boot sector.
+    jmp $ ; Hang
+    times 510-($-$$) db 0 ; Fills empty space with 0s
+    dw 0xaa55 ; Boot sector sig
