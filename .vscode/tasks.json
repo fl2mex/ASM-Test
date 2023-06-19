@@ -9,6 +9,8 @@
         "-f",
 		"bin",
         "${file}",
+        "-I",
+        "${fileDirname}",
         "-o",
         "${fileDirname}\\${fileBasenameNoExtension}.bin"
       ],

@@ -2,10 +2,11 @@
 Using this repo to learn my way around (x86 ftw) assembly, specifically in Systems Engineering.
 
 # Progress & Learning
-Latest progress: Bootloader that prints Hello, World!<br>
-Latest thing I learned: How to use BIOS interrupts to print to the screen.<br>
+Latest progress: Abstraction of functions, print is now a seperate file!<br>
+Latest thing I learned: "\n" is actually 2 characters, the Newline and the Carriage Return.<br>
 Previous milestones:
-- Bootloader that prints Hello, World! (Hey! That's this milestone!)
+- Abstraction of functions, print is now a seperate file! (Hey! That's this milestone!)
+- Bootloader that prints Hello, World!
 - Bootloader that boots into Text mode!
 
 # Abandon Hope All Ye Who Enter Here
@@ -23,16 +24,17 @@ Then, you need to clone this repo, and run this command to build:<br>
 `nasm -f bin -o boot.bin boot.asm`<br>
 Then, to run the bootloader in qemu, run:<br>
 `qemu-system-x86_64 boot.bin`<br>
-And off to the races you go!
+And off to the races you go! (other than changing boot to your desired file name, of course)
 
 # Resources to bounce off of when I get stuck
 To learn ASM, I found [a tutorial playlist on YouTube][yt], 
 and [The first link on google][firstlink].<br>
 I have been using [OSDev][osdev] 
 and [This Russian site I found on Google][russiansite]
-and a lot of [Wikipedia](https://en.wikipedia.org/wiki/BIOS_interrupt_call).<br>
+and a lot of [Wikipedia][wikipedia].<br>
 Another resource is [This book][goodbook] 
 and [This git repo that has short step-by-step instructions][nicegit].
+Found another nice interrupt list [here][anotherinterrupt]. 
 
 # One more note
 You should never, ***ever*** copy and paste code from anywhere, these resources are just to help you write your implementation. You should be writing your own code, even if it's uncanny how similar it is to these guides. You'll learn a lot from these guides, but you'll learn even more from experimenting and playing around with it!<br>
@@ -45,7 +47,9 @@ This repo, just like most of my other repos, is licensed under the [GPL License]
 [firstlink]: https://www.tutorialspoint.com/assembly_programming/
 [osdev]: https://wiki.osdev.org/
 [russiansite]: http://vitaly_filatov.tripod.com/ng/asm/
+[wikipedia]: https://en.wikipedia.org/wiki/BIOS_interrupt_call
 [goodbook]: https://www.cs.bham.ac.uk//~exr/lectures/opsys/10_11/lectures/os-dev.pdf
 [nicegit]: https://github.com/cfenollosa/os-tutorial/
+[anotherinterrupt]: https://stanislavs.org/helppc/idx_interrupt.html
 [nasm]: https://www.nasm.us/
 [qemu]: https://www.qemu.org/

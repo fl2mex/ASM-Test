@@ -9,22 +9,13 @@ mov ah, 0x0e ; TTY (TeleTYpewriter) mode
 mov al, 0x3 ; 80x25 @ 16 color mode
 
 mov bx, myString ; Move the address of the string into bx.
-call print ; Call the print function that we'll define below.
+call print ; Call the print function that we've defined in a seperate file.
 jmp endOfProgram ; It's cleaner to jump directly to the end of the program from here.
 
-; Let's create a function that can print a string recursively, character by character.
-print:
-    mov al, [bx]
-    cmp al, 0 ; Compare al to 0
-    je endPrint ; If al is equal to 0, jump to end_print_string. "Early return."
-    int 0x10 ; Print the character in al
-    add bx, 1 ; Move 1 byte, next character
-    jmp print ; Recursive call to print_string.
-    
-endPrint:
-    ret ; Return from the function
+%include "../Global Functions/print.asm" ; Abstracted the print function.
 
-myString: db 'Hello, World!', 0 ; 0/Null terminated string
+; String	 Text		      New Line	  Null Terminator
+myString: db 'Hello, World!', 0x0a, 0x0d, 0
 
 endOfProgram:
     jmp $ ; Jump to current address (forever), saves 1 LOC but its for shits and giggles
