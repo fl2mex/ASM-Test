@@ -38,11 +38,11 @@ and a lot of [Wikipedia][wikipedia].<br>
 Another resource is [This book][goodbook] 
 and [This git repo that has short step-by-step instructions][nicegit].<br>
 Found another nice interrupt list [here][anotherinterrupt], I've actually been using this one a lot.<br>
-A [cool blog][coolblog] I found, and a [friendly discord server](notmydiscord).
+A [cool blog][coolblog] I found, and a [friendly discord server][notmydiscord].
 
 # Another note
-I'm using windows, which was my first mistake here, as QEMU doesn't play well, or at least the [binaries that were given on the website][winqemubin]. I tried compiling, and after a while, figured out that the DLLs were a bit funky. After a while of tinkering and getting close to caving in and downloading sketchy DLL files off the internet, I figured out that the version I downloaded was missing a DLL, [and rightly stated so in the changelog](changeloghighlight). I downloaded the latest version, and it worked! I'm just going to leave this here in case anyone else has this problem.<br>
-Please, **please** use Linux if you're up to this task, it will make your life so much easier, from running the binaries, to compiling with other tools. I'm avoiding it for the time being until i'm happily proficient with [Arch](btw).
+I'm using windows, which was my first mistake here, as QEMU doesn't play well, or at least the [binaries that were given on the website][winqemubin]. I tried compiling, and after a while, figured out that the DLLs were a bit funky. After a while of tinkering and getting close to caving in and downloading sketchy DLL files off the internet, I figured out that the version I downloaded was missing a DLL, [and rightly stated so in the changelog][changeloghighlight]. I downloaded the latest version, and it worked! I'm just going to leave this here in case anyone else has this problem.<br>
+Please, **please** use Linux if you're up to this task, it will make your life so much easier, from running the binaries, to compiling with other tools. I'm avoiding it for the time being until i'm happily proficient with [Arch][btw].
 
 # One more note
 You should never, ***ever*** copy and paste code from anywhere, these resources are just to help you write your implementation. You should be writing your own code, even if it's uncanny how similar it is to these guides. You'll learn a lot from these guides, but you'll learn even more from experimenting and playing around with it!<br>
