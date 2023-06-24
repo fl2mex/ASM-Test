@@ -5,7 +5,7 @@
 use16 ; Use 16-bit mode
 org 0x7c00 ; Set the origin to 0x7c00
 
-mov ax, 0x3 ; 80x25 @ 16 color mode
+mov ax, 0x3 ; 80x25 @ 16 colour mode
 int 10h ; Video BIOS interrupt
 
 ; Legacy boot bios expects the boot sector to be 512 bytes long.

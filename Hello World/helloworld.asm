@@ -1,17 +1,17 @@
 ; "Hello, World!" Bootloader
 ; Made by Kaiden Bird
 ; Created: 18/06/2023
-; Last updated: 20/06/2023
-; Changelog: Abstracted the print function, added newline.
+; Last updated: 25/06/2023
+; Changelog: Update to the print function, changed code.
 
 use16 ; Use 16-bit mode
 org 0x7c00 ; Set the origin to 0x7c00
 
 mov ah, 0x0e ; TTY (TeleTYpewriter) mode
-mov al, 0x3 ; 80x25 @ 16 color mode
+mov al, 0x3 ; 80x25 @ 16 colour mode
 
 mov bx, myString ; Move the address of the string into bx.
-call print ; Call the print function that we've defined in a seperate file.
+call printsf ; Call the print function that we've defined in a seperate file.
 jmp endOfProgram ; It's cleaner to jump directly to the end of the program from here.
 
 %include "../Global Functions/print.asm" ; Abstracted the print function.
