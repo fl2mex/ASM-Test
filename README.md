@@ -10,6 +10,9 @@ Previous milestones:
 - Bootloader that prints Hello, World!
 - Bootloader that boots into Text mode!
 
+An image from my latest milestone:<br>
+![Bootloader that prints Hello, World!](image.png)
+
 # Abandon Hope All Ye Who Enter Here
 Assembly, especially for operating systems and systems eng. usually is looked down upon for beginners.<br>
 But alas, I, a beginner in ASM, am taking on this boring but fulfilling challenge. (emphasis on challenge!)<br>
