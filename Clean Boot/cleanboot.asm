@@ -1,13 +1,12 @@
 ; Clean-looking Bootloader
 ; Made by Kaiden Bird
 ; Created: 25/06/2023
+use16 ; Use 16-bit mode
+org 0x7c00 ; Set the origin to 0x7c00
 
 jmp start
 %include "../Global Functions/print.asm"
 start:
-	use16 ; Use 16-bit mode
-	org 0x7c00 ; Set the origin to 0x7c00
-
 	; Set Video Mode
 	; AL sets Size & Palette Registers
 	; See https://stanislavs.org/helppc/int_10-0.html for AL values
@@ -33,17 +32,16 @@ start:
 	mov bh, 0x00 ; Colour Value Select
 	mov bl, 0x01 ; Set bacground colour to Blue
 	int 0x10
-
 	mov ah, 0x0e ; TTY (TeleTYpewriter) mode
 
-	printsLn lines
-	printsLn string
-	printsLn lines
+	sprintLn lines
+	sprintLn string
+	sprintLn lines
 
-	printh 0xabcd
-	printsLn hex1
-	printh 4660
-	printsLn hex2
+	hprint 0xabcd
+	sprintLn hex1
+	hprint 4660
+	sprintLn hex2
 
 	mov ah, 0x01 ; Tell BIOS Interrupt to set cursor type
 	mov ch, 0x00 ; Cursor start line
@@ -56,7 +54,7 @@ loop:
 	mov ah, 0x0e ; Call print char interrupt
 	int 0x10
 	
-	cmp al, 0xd ; Check if enter key was pressed
+	cmp al, 0x0d ; Check if enter key was pressed
 	jne loop ; If enter key was pressed, end program
 	int 0x19 ; Reboot
 

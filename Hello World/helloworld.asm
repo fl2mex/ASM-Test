@@ -11,7 +11,7 @@ mov ah, 0x0e ; TTY (TeleTYpewriter) mode
 mov al, 0x3 ; 80x25 @ 16 colour mode
 
 mov bx, myString ; Move the address of the string into bx.
-call printsf ; Call the print function that we've defined in a seperate file.
+call sprintf ; Call the print function that we've defined in a seperate file.
 jmp endOfProgram ; It's cleaner to jump directly to the end of the program from here.
 
 %include "../Global Functions/print.asm" ; Abstracted the print function.
