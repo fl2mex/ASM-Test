@@ -1,6 +1,10 @@
 ; Clean-looking Bootloader
 ; Made by Kaiden Bird
 ; Created: 25/06/2023
+; Last Updated: 10/07/2023
+; Changelog: Made the bootloader look more pretty,
+; added a few more comments, added decimal printing example.
+
 use16 ; Use 16-bit mode
 org 0x7c00 ; Set the origin to 0x7c00
 
@@ -35,13 +39,20 @@ start:
 	mov ah, 0x0e ; TTY (TeleTYpewriter) mode
 
 	sprintLn lines
-	sprintLn string
+	sprintLn string1
+	sprintLn string2
 	sprintLn lines
-
-	hprint 0xabcd
-	sprintLn hex1
-	hprint 4660
-	sprintLn hex2
+	sprintLn string3
+	hprintLn hex1
+	hprintLn hex2
+	hprintLn hex3
+	sprintLn lines
+	sprintLn string4
+	dprintLn num1
+	dprintLn num2
+	dprintLn num3
+	sprintLn lines
+	newLine
 
 	mov ah, 0x01 ; Tell BIOS Interrupt to set cursor type
 	mov ch, 0x00 ; Cursor start line
@@ -58,10 +69,20 @@ loop:
 	jne loop ; If enter key was pressed, end program
 	int 0x19 ; Reboot
 
+; Strings can be written as a 'byte', because it's a pointer to a string.
+; Hex & Decimal values can be written as a 'word', because it's a literal.
+; Strings must terminate with a 0 so the program knows when to stop printing.
 lines: db '====================', 0
-string: db 'Welcome to My OS!', 0
-hex1: db ' is 43981 in decimal', 0
-hex2: db ' is 4660 in decimal', 0
+string1: db 'Welcome to My OS!', 0
+string2: db 'You can type in here, and press enter to restart the system!', 0
+string3: db 'Testing Hex Printing:', 0
+string4: db 'Testing Decimal Printing:', 0
+hex1: dw 0xabcd ; 43981, Can be written in hex.
+hex2: dw 4660 ; 0x1234, Can be written in decimal.
+hex3: dw 0x10000 ; 65536, 0xffff is the max value, so it overflows. Will produce a warning.
+num1: dw 12345
+num2: dw 65535
+num3: dw 65536 ; Same here, will also produce a warning.
 
 endOfProgram:
 	jmp $ ; Hang

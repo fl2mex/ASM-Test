@@ -17,7 +17,32 @@
         "${fileDirname}\\${fileBasenameNoExtension}.bin",
         ";",
         "qemu-system-x86_64",
+        "${fileDirname}\\${fileBasenameNoExtension}.bin"
+      ],
+      "group":
+      {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "GDB Debug Setup",
+      "type": "shell",
+      "command": "nasm",
+      "args":
+      [
+        "-f",
+		    "bin",
+        "${file}",
+        "-I",
+        "${fileDirname}",
+        "-o",
         "${fileDirname}\\${fileBasenameNoExtension}.bin",
+        ";",
+        "qemu-system-x86_64",
+        "${fileDirname}\\${fileBasenameNoExtension}.bin",
+        "-s",
+        "-S"
       ],
       "group":
       {
